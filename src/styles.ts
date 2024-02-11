@@ -20,6 +20,7 @@ export const GlobalCSS = createGlobalStyle`
     body {
         background-color: ${colors.bgcolor};
         color: ${colors.primary};
+        font-weight: 400;
     }
 
     .container {
