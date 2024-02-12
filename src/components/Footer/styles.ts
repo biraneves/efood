@@ -19,7 +19,7 @@ export const FooterContainer = styled.footer`
 `;
 
 export const Logo = styled.img`
-    width: 125px;
+    width: 124px;
 `;
 
 export const SocialLinks = styled.ul`

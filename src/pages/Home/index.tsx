@@ -1,10 +1,10 @@
 import Header from '../../components/Header';
-import Restaurants from '../../components/Restaurants';
+import ListCards from '../../components/ListCards';
 
 const Home = () => (
     <>
-        <Header />
-        <Restaurants />
+        <Header type="home" />
+        <ListCards type="home" />
     </>
 );
 

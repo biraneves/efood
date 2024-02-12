@@ -1,11 +1,22 @@
+import { Link } from 'react-router-dom';
 import logo from '../../assets/images/logo.svg';
-import { HeaderContainer, Logo } from './styles';
+import { HeaderContainer, Logo, TopContent } from './styles';
 
-const Header = () => (
-    <HeaderContainer>
+export type Props = {
+    type?: 'home' | 'profile';
+};
+
+const Header = ({ type }: Props) => (
+    <HeaderContainer type={type}>
         <div className="container">
-            <Logo src={logo} alt="" />
-            <p>Viva experiências gastronômicas no conforto da sua casa</p>
+            <TopContent type={type}>
+                {type === 'profile' ? <p>Restaurantes</p> : <></>}
+                <Link to="/">
+                    <Logo src={logo} alt="" />
+                </Link>
+                {type === 'profile' ? <p>0 produto(s) no carrinho</p> : <></>}
+            </TopContent>
+            {type === 'home' ? <p>Viva experiências gastronômicas no conforto da sua casa</p> : <></>}
         </div>
     </HeaderContainer>
 );
