@@ -1,31 +1,14 @@
 import Product from '../Product';
 
-class Restaurant {
+type Restaurant = {
     id: number;
-    title: string;
-    image: string;
-    score: number;
-    infos: string[];
-    description: string;
-    products: Product[];
-
-    constructor(
-        id: number,
-        title: string,
-        image: string,
-        score: number,
-        infos: string[],
-        description: string,
-        products: Product[]
-    ) {
-        this.id = id;
-        this.title = title;
-        this.image = image;
-        this.score = score;
-        this.infos = infos;
-        this.description = description;
-        this.products = products;
-    }
-}
+    titulo: string;
+    destacado: boolean;
+    tipo: string;
+    avaliacao: number;
+    descricao: string;
+    capa: string;
+    cardapio: Product[];
+};
 
 export default Restaurant;

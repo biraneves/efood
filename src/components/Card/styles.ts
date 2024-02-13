@@ -6,6 +6,12 @@ export const CardContainer = styled.li<Omit<Props, 'item'>>`
     background-color: ${props => (props.type === 'home' ? colors.white : colors.primary)};
     position: relative;
     padding: ${props => (props.type === 'home' ? '0' : '8px')};
+
+    img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
 `;
 
 export const CardInfos = styled.div<Omit<Props, 'item'>>`

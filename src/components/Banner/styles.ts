@@ -1,13 +1,7 @@
 import styled from 'styled-components';
-import Restaurant from '../../models/Restaurant';
 import { colors } from '../../styles';
 
-type Props = {
-    restaurant: Restaurant;
-};
-
-export const BannerContainer = styled.div<Props>`
-    background-image: url(${props => props.restaurant.image});
+export const BannerContainer = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;

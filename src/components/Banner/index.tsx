@@ -1,20 +1,18 @@
-import RestaurantClass from '../../models/Restaurant';
+import Restaurant from '../../models/Restaurant';
 import { BannerContainer, RestaurantName, Tag } from './styles';
 
-type Props = {
-    restaurant: RestaurantClass;
+export type Props = {
+    restaurant: Restaurant;
 };
 
 const Banner = ({ restaurant }: Props) => {
     return (
-        <BannerContainer restaurant={restaurant}>
+        <BannerContainer style={{ backgroundImage: `url(${restaurant.capa})` }}>
             <div className="container">
                 <div>
-                    {restaurant.infos.map(info => (
-                        <Tag>{info}</Tag>
-                    ))}
+                    <Tag>{restaurant.tipo}</Tag>
                 </div>
-                <RestaurantName>{restaurant.title}</RestaurantName>
+                <RestaurantName>{restaurant.titulo}</RestaurantName>
             </div>
         </BannerContainer>
     );
