@@ -7,12 +7,25 @@ export const BannerContainer = styled.div`
     background-position: center center;
     height: 280px;
     padding: 24px 0;
+    position: relative;
 
     > div {
+        position: relative;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         height: 100%;
+        z-index: 1;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
     }
 `;
 

@@ -10,7 +10,7 @@ const Header = ({ type }: Props) => (
     <HeaderContainer type={type}>
         <div className="container">
             <TopContent type={type}>
-                {type === 'profile' ? <p>Restaurantes</p> : <></>}
+                {type === 'profile' ? <Link to="/">Restaurantes</Link> : <></>}
                 <Link to="/">
                     <Logo src={logo} alt="" />
                 </Link>

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import bgPattern from '../../assets/images/fundo.png';
 import { Props } from '.';
+import { colors } from '../../styles';
 
 export const HeaderContainer = styled.header<Props>`
     background-image: url(${bgPattern});
@@ -42,6 +43,10 @@ export const TopContent = styled.div<Props>`
 
     :first-child {
         text-align: ${props => (props.type === 'home' ? 'center' : 'left')};
+        text-decoration: none;
+        color: ${colors.primary};
+        font-size: 18px;
+        font-weight: 900;
     }
 
     :last-child {
