@@ -3,3 +3,10 @@ export const cropText = (text: string) => {
 
     return text;
 };
+
+export const formatCurrency = (amount: number) => {
+    return new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL',
+    }).format(amount);
+};

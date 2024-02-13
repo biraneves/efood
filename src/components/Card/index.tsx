@@ -2,15 +2,17 @@ import Product from '../../models/Product';
 import Restaurant from '../../models/Restaurant';
 import { cropText } from '../../utils/Format';
 import Button from '../Button';
+import { ModalState } from '../ListCards';
 import Score from '../Score';
 import { CardContainer, CardInfos, CardTitle, Tag, TagsList } from './styles';
 
 export type Props = {
     type: string;
     item: Restaurant | Product;
+    onClick?: () => void;
 };
 
-const Card = ({ type, item }: Props) => {
+const Card = ({ type, item, onClick }: Props) => {
     return (
         <CardContainer type={type}>
             <img
@@ -29,6 +31,7 @@ const Card = ({ type, item }: Props) => {
                     type={type === 'home' ? 'link' : 'button'}
                     title={type === 'home' ? (item as Restaurant).titulo : (item as Product).nome}
                     to={type === 'home' ? `/profile/${item.id}` : ''}
+                    onClick={onClick}
                 >
                     {type === 'home' ? 'Saiba mais' : 'Adicionar ao carrinho'}
                 </Button>

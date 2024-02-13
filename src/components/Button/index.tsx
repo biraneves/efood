@@ -1,3 +1,4 @@
+import { ModalState } from '../ListCards';
 import { ButtonContainer, ButtonLink } from './styles';
 
 type Props = {
