@@ -18,6 +18,8 @@ import {
   useGetRestaurantQuery,
   useGetRestaurantsQuery,
 } from '../../services/api';
+import { useDispatch } from 'react-redux';
+import { add, open } from '../../store/reducers/cart';
 
 export type Props = {
   type: 'home' | 'profile';
@@ -68,6 +70,14 @@ const ListCards = ({ type }: Props) => {
   };
 
   if (data) {
+    const dispatch = useDispatch();
+
+    const addToCart = () => {
+      dispatch(add(modalState));
+      hideModal();
+      dispatch(open());
+    };
+
     return (
       <>
         <ListCardsContainer type={type}>
@@ -107,7 +117,7 @@ const ListCards = ({ type }: Props) => {
                     <br />
                     Serve: {modalState.porcao}
                   </p>
-                  <AddCart>
+                  <AddCart onClick={addToCart}>
                     Adicionar ao carrinho - {formatCurrency(modalState.preco)}
                   </AddCart>
                 </div>

@@ -54,3 +54,11 @@ export const TopContent = styled.div<Props>`
     text-align: ${(props) => (props.type === 'home' ? 'center' : 'right')};
   }
 `;
+
+export const CartButton = styled.a`
+  max-width: 410px;
+  font-size: 18px;
+  font-weight: 900;
+  text-decoration: none;
+  cursor: pointer;
+`;
