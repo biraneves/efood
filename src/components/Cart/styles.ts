@@ -66,7 +66,7 @@ export const ButtonBin = styled.img`
   height: 16px;
   position: absolute;
   bottom: 8px;
-  right: 0;
+  right: 8px;
   cursor: pointer;
 `;
 
