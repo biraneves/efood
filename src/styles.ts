@@ -1,11 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const colors = {
-    white: '#fff',
-    primary: '#e66767',
-    yellow: '#ffb930',
-    secondary: '#ffebd9',
-    bgcolor: '#fff8f2',
+  white: '#fff',
+  primary: '#e66767',
+  yellow: '#ffb930',
+  secondary: '#ffebd9',
+  bgcolor: '#fff8f2',
 };
 
 export const GlobalCSS = createGlobalStyle`
