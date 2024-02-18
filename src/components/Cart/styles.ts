@@ -32,6 +32,7 @@ export const Sidebar = styled.aside`
   z-index: 1;
   background-color: ${colors.primary};
   padding: 32px 8px;
+  overflow-y: scroll;
 `;
 
 export const CardItem = styled.li`
