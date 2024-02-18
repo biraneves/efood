@@ -33,6 +33,26 @@ export const Sidebar = styled.aside`
   background-color: ${colors.primary};
   padding: 32px 8px;
   overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 14px;
+    background-color: ${colors.secondary};
+  }
+
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 4px grey;
+    border-radius: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    border: solid 2px ${colors.secondary};
+    background-color: ${colors.primary};
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #a71e01;
+  }
 `;
 
 export const CardItem = styled.li`
