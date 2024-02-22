@@ -16,6 +16,14 @@ export const CartContainer = styled.div`
   }
 `;
 
+export const CartContent = styled.div`
+  display: none;
+
+  &.cart-content-visible {
+    display: block;
+  }
+`;
+
 export const Overlay = styled.div`
   position: absolute;
   top: 0;
@@ -52,6 +60,13 @@ export const Sidebar = styled.aside`
 
   &::-webkit-scrollbar-thumb:hover {
     background-color: #a71e01;
+  }
+
+  .empty-cart {
+    font-size: 14px;
+    line-height: 22px;
+    text-align: center;
+    color: ${colors.secondary};
   }
 `;
 

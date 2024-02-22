@@ -1,3 +1,4 @@
+// Styled components
 import { ScoreContainer } from './styles';
 
 type Props = {

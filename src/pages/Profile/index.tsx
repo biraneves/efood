@@ -1,9 +1,14 @@
+// Libraries
 import { useParams } from 'react-router-dom';
+
+// Components
 import Banner from '../../components/Banner';
 import Header from '../../components/Header';
 import ListCards from '../../components/ListCards';
-import Restaurant from '../../models/Restaurant';
+
+// Services
 import { useGetRestaurantQuery } from '../../services/api';
+import Loader from '../../components/Loader';
 
 const Profile = () => {
   const { id } = useParams();
@@ -20,7 +25,7 @@ const Profile = () => {
     );
   }
 
-  return <h3>Carregando...</h3>;
+  return <Loader />;
 };
 
 export default Profile;

@@ -1,6 +1,14 @@
 /* eslint-disable react-hooks/rules-of-hooks */
+
+// Libraries
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
+// Components
 import Card from '../Card';
+
+// Styled components
 import {
   AddCart,
   CloseIcon,
@@ -9,17 +17,22 @@ import {
   Modal,
   ModalContent,
 } from './styles';
-import Restaurant from '../../models/Restaurant';
-import { useState } from 'react';
-import Product from '../../models/Product';
-import close from '../../assets/images/close.svg';
-import { formatCurrency } from '../../utils/Format';
+
+// Store
+import { add, open } from '../../store/reducers/cart';
+
+// Methods
+import { parseToBRL } from '../../utils';
+
+// Services
 import {
   useGetRestaurantQuery,
   useGetRestaurantsQuery,
 } from '../../services/api';
-import { useDispatch } from 'react-redux';
-import { add, open } from '../../store/reducers/cart';
+
+// Assets
+import close from '../../assets/images/close.svg';
+import Loader from '../Loader';
 
 export type Props = {
   type: 'home' | 'profile';
@@ -37,6 +50,7 @@ export type ModalState = {
 
 const ListCards = ({ type }: Props) => {
   const { id } = useParams();
+  const dispatch = useDispatch();
 
   const [modalState, setModalState] = useState<ModalState>({
     id: 0,
@@ -70,8 +84,6 @@ const ListCards = ({ type }: Props) => {
   };
 
   if (data) {
-    const dispatch = useDispatch();
-
     const addToCart = () => {
       dispatch(add(modalState));
       hideModal();
@@ -118,7 +130,7 @@ const ListCards = ({ type }: Props) => {
                     Serve: {modalState.porcao}
                   </p>
                   <AddCart onClick={addToCart}>
-                    Adicionar ao carrinho - {formatCurrency(modalState.preco)}
+                    Adicionar ao carrinho - {parseToBRL(modalState.preco)}
                   </AddCart>
                 </div>
               </div>
@@ -131,7 +143,7 @@ const ListCards = ({ type }: Props) => {
     );
   }
 
-  return <h3>Carregando...</h3>;
+  return <Loader />;
 };
 
 export default ListCards;

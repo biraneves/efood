@@ -6,6 +6,7 @@ export const colors = {
   yellow: '#ffb930',
   secondary: '#ffebd9',
   bgcolor: '#fff8f2',
+  black: '#4b4b4b',
 };
 
 export const GlobalCSS = createGlobalStyle`
@@ -27,5 +28,9 @@ export const GlobalCSS = createGlobalStyle`
         max-width: 1024px;
         width: 100%;
         margin: 0 auto;
+    }
+
+    .mb-24 {
+      margin-bottom: 24px;
     }
 `;

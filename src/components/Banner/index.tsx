@@ -1,4 +1,4 @@
-import Restaurant from '../../models/Restaurant';
+// Styled components
 import { BannerContainer, RestaurantName, Tag } from './styles';
 
 export type Props = {
