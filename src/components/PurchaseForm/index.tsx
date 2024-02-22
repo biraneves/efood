@@ -114,6 +114,7 @@ const PurchaseForm = () => {
 
   const submitPayment = () => {
     form.submitForm();
+    form.resetForm();
     dispatch(finishPayment());
     dispatch(showConfirmation());
   };
@@ -321,7 +322,7 @@ const PurchaseForm = () => {
               type="button"
               title="Finalizar pagamento"
             >
-              Finalizar pagamento
+              {isLoading ? 'Enviando pedido...' : 'Finalizar pagamento'}
             </Button>
             <Button
               onClick={() => deliveryForm()}
