@@ -1,5 +1,5 @@
+// Libraries
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import Product from '../../models/Product';
 
 type CartState = {
   items: Product[];

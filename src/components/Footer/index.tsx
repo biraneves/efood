@@ -1,9 +1,14 @@
+// Libraries
+import { Link } from 'react-router-dom';
+
+// Styled components
 import { FooterContainer, Logo, SocialLinks } from './styles';
+
+// Assets
 import logo from '../../assets/images/logo.svg';
 import instagram from '../../assets/images/instagram.svg';
 import facebook from '../../assets/images/facebook.svg';
 import twitter from '../../assets/images/twitter.svg';
-import { Link } from 'react-router-dom';
 
 const Footer = () => (
   <FooterContainer>

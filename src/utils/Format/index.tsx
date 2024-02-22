@@ -4,7 +4,7 @@ export const cropText = (text: string) => {
   return text;
 };
 
-export const formatCurrency = (amount: number) => {
+export const parseToBRL = (amount: number) => {
   return new Intl.NumberFormat('pt-BR', {
     style: 'currency',
     currency: 'BRL',

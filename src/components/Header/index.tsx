@@ -1,9 +1,16 @@
+// Libraries
 import { Link } from 'react-router-dom';
-import logo from '../../assets/images/logo.svg';
-import { CartButton, HeaderContainer, Logo, TopContent } from './styles';
 import { useDispatch, useSelector } from 'react-redux';
+
+// Styled components
+import { CartButton, HeaderContainer, Logo, TopContent } from './styles';
+
+// Store
 import { RootReducer } from '../../store';
 import { open } from '../../store/reducers/cart';
+
+// Assets
+import logo from '../../assets/images/logo.svg';
 
 export type Props = {
   type?: 'home' | 'profile';

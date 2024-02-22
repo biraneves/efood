@@ -1,9 +1,12 @@
-import Product from '../../models/Product';
-import Restaurant from '../../models/Restaurant';
-import { cropText } from '../../utils/Format';
+// Components
 import Button from '../Button';
 import Score from '../Score';
+
+// Styled components
 import { CardContainer, CardInfos, CardTitle, Tag, TagsList } from './styles';
+
+// Methods
+import { cropText } from '../../utils/Format';
 
 export type Props = {
   type: string;

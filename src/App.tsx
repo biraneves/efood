@@ -1,11 +1,19 @@
-import React from 'react';
-import { GlobalCSS } from './styles';
+// Libraries
 import { BrowserRouter } from 'react-router-dom';
-import AppRoutes from './routes';
-import Footer from './components/Footer';
 import { Provider } from 'react-redux';
-import { store } from './store';
+
+// Components
 import Cart from './components/Cart';
+import Footer from './components/Footer';
+
+// Styled components
+import { GlobalCSS } from './styles';
+
+// Store
+import { store } from './store';
+
+// Routes
+import AppRoutes from './routes';
 
 function App() {
   return (
