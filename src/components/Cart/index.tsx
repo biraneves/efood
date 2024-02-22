@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 // Components
 import Button from '../Button';
+import PurchaseForm from '../PurchaseForm';
 
 // Styled components
 import {
@@ -39,29 +40,39 @@ const Cart = () => {
     <CartContainer className={isOpen ? 'is-open' : ''}>
       <Overlay onClick={() => closeCart()} />
       <Sidebar>
-        <ul>
-          {items.map((item) => (
-            <CardItem key={item.id}>
-              <img src={item.foto} alt={item.nome} />
-              <div>
-                <h4>{item.nome}</h4>
-                <p>{parseToBRL(item.preco)}</p>
-              </div>
-              <ButtonBin
-                onClick={() => removeItem(item.id)}
-                src={buttonBin}
-                alt="Remover produto"
-              />
-            </CardItem>
-          ))}
-        </ul>
-        <SaleInfo>
-          <p>Valor total</p>
-          <p>{parseToBRL(getTotalPrice())}</p>
-        </SaleInfo>
-        <Button type="button" title="Continuar com a entrega">
-          Continuar com a entrega
-        </Button>
+        {items.length > 0 ? (
+          <>
+            <ul>
+              {items.map((item) => (
+                <CardItem key={item.id}>
+                  <img src={item.foto} alt={item.nome} />
+                  <div>
+                    <h4>{item.nome}</h4>
+                    <p>{parseToBRL(item.preco)}</p>
+                  </div>
+                  <ButtonBin
+                    onClick={() => removeItem(item.id)}
+                    src={buttonBin}
+                    alt="Remover produto"
+                  />
+                </CardItem>
+              ))}
+            </ul>
+            <SaleInfo>
+              <p>Valor total</p>
+              <p>{parseToBRL(getTotalPrice())}</p>
+            </SaleInfo>
+            <Button type="button" title="Continuar com a entrega">
+              Continuar com a entrega
+            </Button>
+          </>
+        ) : (
+          <p className="empty-cart">
+            O carrinho está vazio. Adicione pelo menos um item para seguir com a
+            compra.
+          </p>
+        )}
+        <PurchaseForm />
       </Sidebar>
     </CartContainer>
   );

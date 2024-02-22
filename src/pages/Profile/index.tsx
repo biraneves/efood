@@ -8,6 +8,7 @@ import ListCards from '../../components/ListCards';
 
 // Services
 import { useGetRestaurantQuery } from '../../services/api';
+import Loader from '../../components/Loader';
 
 const Profile = () => {
   const { id } = useParams();
@@ -24,7 +25,7 @@ const Profile = () => {
     );
   }
 
-  return <h3>Carregando...</h3>;
+  return <Loader />;
 };
 
 export default Profile;

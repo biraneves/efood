@@ -32,6 +32,7 @@ import {
 
 // Assets
 import close from '../../assets/images/close.svg';
+import Loader from '../Loader';
 
 export type Props = {
   type: 'home' | 'profile';
@@ -143,7 +144,7 @@ const ListCards = ({ type }: Props) => {
     );
   }
 
-  return <h3>Carregando...</h3>;
+  return <Loader />;
 };
 
 export default ListCards;
