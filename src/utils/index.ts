@@ -10,3 +10,11 @@ export const parseToBRL = (amount: number) => {
     currency: 'BRL',
   }).format(amount);
 };
+
+export const getTotalPrice = (items: Product[]) => {
+  return items.reduce((acc, currentItem) => {
+    if (currentItem.preco) return (acc += currentItem.preco);
+
+    return 0;
+  }, 0);
+};

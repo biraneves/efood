@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 
 // Libraries
-import { useParams } from 'react-router-dom';
 import { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 // Components
@@ -22,7 +22,7 @@ import {
 import { add, open } from '../../store/reducers/cart';
 
 // Methods
-import { parseToBRL } from '../../utils/Format';
+import { parseToBRL } from '../../utils';
 
 // Services
 import {
@@ -50,6 +50,7 @@ export type ModalState = {
 
 const ListCards = ({ type }: Props) => {
   const { id } = useParams();
+  const dispatch = useDispatch();
 
   const [modalState, setModalState] = useState<ModalState>({
     id: 0,
@@ -83,8 +84,6 @@ const ListCards = ({ type }: Props) => {
   };
 
   if (data) {
-    const dispatch = useDispatch();
-
     const addToCart = () => {
       dispatch(add(modalState));
       hideModal();

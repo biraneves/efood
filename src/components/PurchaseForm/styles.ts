@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 import { colors } from '../../styles';
+import Button from '../Button';
 
 type Props = {
   type: 'delivery' | 'payment';
 };
 
-export const FormContainer = styled.form<Props>`
+export const FormContainer = styled.div<Props>`
   width: 100%;
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
@@ -18,6 +19,28 @@ export const FormContainer = styled.form<Props>`
 
   h4 {
     font-size: 16px;
+  }
+
+  &.form-visible {
+    display: flex;
+  }
+`;
+
+export const OrderConfirmation = styled.div`
+  width: 100%;
+  color: ${colors.secondary};
+
+  h4 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 16px;
+  }
+
+  p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    margin-bottom: 32px;
   }
 `;
 
@@ -36,6 +59,11 @@ export const InputGroup = styled.div`
     color: ${colors.black};
     font-size: 14px;
     font-weight: bold;
+
+    &.error {
+      background-color: #fcc2bd;
+      color: red;
+    }
   }
 `;
 

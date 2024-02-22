@@ -16,6 +16,14 @@ export const CartContainer = styled.div`
   }
 `;
 
+export const CartContent = styled.div`
+  display: none;
+
+  &.cart-content-visible {
+    display: block;
+  }
+`;
+
 export const Overlay = styled.div`
   position: absolute;
   top: 0;

@@ -6,7 +6,7 @@ import Score from '../Score';
 import { CardContainer, CardInfos, CardTitle, Tag, TagsList } from './styles';
 
 // Methods
-import { cropText } from '../../utils/Format';
+import { cropText } from '../../utils';
 
 export type Props = {
   type: string;
