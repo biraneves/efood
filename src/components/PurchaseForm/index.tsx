@@ -90,6 +90,9 @@ const PurchaseForm = () => {
           },
         },
       });
+      form.resetForm();
+      dispatch(finishPayment());
+      dispatch(showConfirmation());
     },
   });
 
@@ -110,13 +113,6 @@ const PurchaseForm = () => {
 
   const paymentForm = () => {
     dispatch(showPaymentForm());
-  };
-
-  const submitPayment = () => {
-    form.submitForm();
-    form.resetForm();
-    dispatch(finishPayment());
-    dispatch(showConfirmation());
   };
 
   const endPurchase = () => {
@@ -318,7 +314,7 @@ const PurchaseForm = () => {
               </InputGroup>
             </HorizontalGroup>
             <Button
-              onClick={() => submitPayment()}
+              onClick={form.submitForm}
               type="button"
               title="Finalizar pagamento"
             >
