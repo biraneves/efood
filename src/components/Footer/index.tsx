@@ -34,8 +34,8 @@ const Footer = () => (
         </li>
       </SocialLinks>
       <p>
-        A efood é uma plataforma para divulgação de estabelecimentos, a
-        responsabilidade pela entrega, qualidade dos produtos é toda do
+        A efood é uma plataforma para divulgação de estabelecimentos. A
+        responsabilidade pela entrega e qualidade dos produtos é toda do
         estabelecimento contratado.
       </p>
     </div>
