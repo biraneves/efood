@@ -17,7 +17,7 @@ import {
 import { RootReducer } from '../../store';
 import { getTotalPrice, parseToBRL } from '../../utils';
 import { usePurchaseMutation } from '../../services/api';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import {
   clear,
   showPaymentForm,
@@ -35,6 +35,7 @@ const PurchaseForm = () => {
   );
   const totalPrice = getTotalPrice(items);
   const dispatch = useDispatch();
+  const [formIsValid, setFormIsValid] = useState(false);
 
   const form = useFormik({
     initialValues: {
@@ -103,8 +104,51 @@ const PurchaseForm = () => {
     return isTouched && isInvalid;
   };
 
+  const checkInputIsValid = (fieldName: string): boolean => {
+    return !(form.values.name === '' || fieldName in form.errors);
+  };
+
   const cartContent = () => {
     dispatch(hideForm());
+  };
+
+  const checkForm = () => {
+    const fieldsToCheck: Array<keyof typeof form.values> = [
+      'name',
+      'address',
+      'city',
+      'zipCode',
+      'addressNumber',
+    ];
+
+    const emptyFields: boolean[] = [];
+    const fieldsWithErrors: boolean[] = [];
+
+    fieldsToCheck.map((field) => {
+      if (form.values[field] === '') emptyFields.push(true);
+
+      switch (field) {
+        case 'name':
+          fieldsWithErrors.push(form.values[field].length <= 4);
+          break;
+        case 'address':
+          fieldsWithErrors.push(form.values[field].length <= 4);
+          break;
+        case 'city':
+          fieldsWithErrors.push(form.values[field].length <= 2);
+          break;
+        case 'zipCode':
+          fieldsWithErrors.push(form.values[field].length <= 8);
+          break;
+        case 'addressNumber':
+          fieldsWithErrors.push(false);
+          break;
+      }
+    });
+
+    setFormIsValid(
+      !(emptyFields.includes(true) || fieldsWithErrors.includes(true)),
+    );
   };
 
   const deliveryForm = () => {
@@ -112,7 +156,11 @@ const PurchaseForm = () => {
   };
 
   const paymentForm = () => {
-    dispatch(showPaymentForm());
+    if (formIsValid) {
+      dispatch(showPaymentForm());
+    } else {
+      alert('Você precisa informar os campos de endereço antes de prosseguir.');
+    }
   };
 
   const endPurchase = () => {
@@ -150,7 +198,7 @@ const PurchaseForm = () => {
           </Button>
         </OrderConfirmation>
       ) : (
-        <form onSubmit={form.handleSubmit}>
+        <form onChange={checkForm} onSubmit={form.handleSubmit}>
           <FormContainer
             type="delivery"
             className={formVisible === 'delivery' ? 'form-visible' : ''}
